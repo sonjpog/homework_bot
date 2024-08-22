@@ -56,9 +56,7 @@ def send_message(bot, message):
 
 
 def get_api_answer(timestamp):
-    """
-    Делает запрос к API и возвращает ответ, преобразованный в Python-формат.
-    """
+    """Делает запрос к API и возвращает ответ в Python-формате."""
     params = {'from_date': timestamp}
     try:
         response = requests.get(ENDPOINT, headers=HEADERS, params=params)
@@ -83,9 +81,7 @@ def check_response(response):
 
 
 def parse_status(homework):
-    """
-    Извлекает статус домашки и возвращает строку для отправки в Telegram.
-    """
+    """Извлекает статус домашки и возвращает строку для отправки в Telegram."""
     if 'homework_name' not in homework:
         raise KeyError(
             'Ключ "homework_name" отсутствует в информации о домашней работе')
